@@ -42,17 +42,15 @@ public class TournamentService
 
     // ---------- Turnaj ----------
 
-    public OperationResult CreateTournament(string name, string discipline, int roundCount)
+    public OperationResult CreateTournament(string? name, string? discipline, int roundCount)
     {
-        name = name.Trim();
-        discipline = discipline.Trim();
-        if (name.Length == 0) return OperationResult.Fail("Název turnaje nesmí být prázdný.");
-        if (discipline.Length == 0) return OperationResult.Fail("Disciplína nesmí být prázdná.");
+        if (string.IsNullOrWhiteSpace(name)) return OperationResult.Fail("Název turnaje nesmí být prázdný.");
+        if (string.IsNullOrWhiteSpace(discipline)) return OperationResult.Fail("Disciplína nesmí být prázdná.");
         if (roundCount < 1) return OperationResult.Fail("Počet kol musí být kladné číslo.");
         if (Open != null)
             return OperationResult.Fail("Už existuje otevřený turnaj. Nejdřív ho ukončete.");
-        Current = new Tournament(name, discipline, roundCount);
-        return OperationResult.Success($"Turnaj '{name}' byl založen.");
+        Current = new Tournament(name.Trim(), discipline.Trim(), roundCount);
+        return OperationResult.Success($"Turnaj '{Current.Name}' byl založen.");
     }
 
     public OperationResult Enroll(string nick)
