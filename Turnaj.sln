@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Turnaj", "Turnaj\Turnaj.csproj", "{4C49BA27-2DD1-49D7-8117-96E3762C954D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Turnaj.Tests", "Turnaj.Tests\Turnaj.Tests.csproj", "{C173CF4A-5783-4C5C-93BF-5AB6840BF95C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{4C49BA27-2DD1-49D7-8117-96E3762C954D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C49BA27-2DD1-49D7-8117-96E3762C954D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C49BA27-2DD1-49D7-8117-96E3762C954D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C173CF4A-5783-4C5C-93BF-5AB6840BF95C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C173CF4A-5783-4C5C-93BF-5AB6840BF95C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C173CF4A-5783-4C5C-93BF-5AB6840BF95C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C173CF4A-5783-4C5C-93BF-5AB6840BF95C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
