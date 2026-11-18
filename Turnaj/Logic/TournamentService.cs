@@ -159,7 +159,7 @@ public class TournamentService
     {
         var t = Open;
         if (t == null) return OperationResult.Fail(NoTournament);
-        if (result == MatchResult.None) return OperationResult.Fail("Neplatný výsledek.");
+        if (!Match.IsPlayedResult(result)) return OperationResult.Fail("Neplatný výsledek.");
         var round = GetRound(roundNumber);
         if (round == null) return OperationResult.Fail($"Kolo {roundNumber} neexistuje.");
         if (round.IsClosed) return OperationResult.Fail("Kolo je uzavřené, výsledek jde měnit jen před uzavřením.");
