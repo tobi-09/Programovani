@@ -53,19 +53,19 @@ public class TournamentService
         return OperationResult.Success($"Turnaj '{Current.Name}' byl založen.");
     }
 
-    public OperationResult Enroll(string nick)
+    public OperationResult Enroll(string? nick)
     {
         var t = Open;
         if (t == null) return OperationResult.Fail(NoTournament);
         if (t.Started) return OperationResult.Fail("Turnaj už začal, přihlášky nejdou měnit.");
         var p = Players.Find(nick);
-        if (p == null) return OperationResult.Fail($"Hráč '{nick.Trim()}' neexistuje.");
+        if (p == null) return OperationResult.Fail("Zadejte přezdívku existujícího hráče.");
         if (t.IsEnrolled(p.Nickname)) return OperationResult.Fail("Hráč už je přihlášen.");
         t.Enrolled.Add(p.Nickname);
         return OperationResult.Success($"Hráč '{p.Nickname}' byl přihlášen.");
     }
 
-    public OperationResult Unenroll(string nick)
+    public OperationResult Unenroll(string? nick)
     {
         var t = Open;
         if (t == null) return OperationResult.Fail(NoTournament);
