@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Turnaj")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+782df5bd7d2269e203c50f74d0bbed832994fd42")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2a97b20c9c957a982a748a12c31c19d818c3546")]
 [assembly: System.Reflection.AssemblyProductAttribute("Turnaj")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Turnaj")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
