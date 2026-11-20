@@ -1,0 +1,15 @@
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/bin/Debug/net10.0/TurnajA
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/bin/Debug/net10.0/TurnajA.deps.json
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/bin/Debug/net10.0/TurnajA.runtimeconfig.json
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/bin/Debug/net10.0/TurnajA.dll
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/bin/Debug/net10.0/TurnajA.pdb
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/obj/Debug/net10.0/TurnajA.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/obj/Debug/net10.0/TurnajA.AssemblyInfoInputs.cache
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/obj/Debug/net10.0/TurnajA.AssemblyInfo.cs
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/obj/Debug/net10.0/TurnajA.csproj.CoreCompileInputs.cache
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/obj/Debug/net10.0/TurnajA.sourcelink.json
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/obj/Debug/net10.0/TurnajA.dll
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/obj/Debug/net10.0/refint/TurnajA.dll
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/obj/Debug/net10.0/TurnajA.pdb
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/obj/Debug/net10.0/TurnajA.genruntimeconfig.cache
+/Users/tobiaspejsar/Desktop/git/Programovani PVA/Turnaj-A/obj/Debug/net10.0/ref/TurnajA.dll
