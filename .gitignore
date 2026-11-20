@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+.vs/
+TestResults/
+.DS_Store
+*.user
+turnaj.dat
+turnaj.dat.tmp
+turnaj.dat.bad

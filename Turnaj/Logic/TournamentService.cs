@@ -42,32 +42,30 @@ public class TournamentService
 
     // ---------- Turnaj ----------
 
-    public OperationResult CreateTournament(string name, string discipline, int roundCount)
+    public OperationResult CreateTournament(string? name, string? discipline, int roundCount)
     {
-        name = name.Trim();
-        discipline = discipline.Trim();
-        if (name.Length == 0) return OperationResult.Fail("Název turnaje nesmí být prázdný.");
-        if (discipline.Length == 0) return OperationResult.Fail("Disciplína nesmí být prázdná.");
+        if (string.IsNullOrWhiteSpace(name)) return OperationResult.Fail("Název turnaje nesmí být prázdný.");
+        if (string.IsNullOrWhiteSpace(discipline)) return OperationResult.Fail("Disciplína nesmí být prázdná.");
         if (roundCount < 1) return OperationResult.Fail("Počet kol musí být kladné číslo.");
         if (Open != null)
             return OperationResult.Fail("Už existuje otevřený turnaj. Nejdřív ho ukončete.");
-        Current = new Tournament(name, discipline, roundCount);
-        return OperationResult.Success($"Turnaj '{name}' byl založen.");
+        Current = new Tournament(name.Trim(), discipline.Trim(), roundCount);
+        return OperationResult.Success($"Turnaj '{Current.Name}' byl založen.");
     }
 
-    public OperationResult Enroll(string nick)
+    public OperationResult Enroll(string? nick)
     {
         var t = Open;
         if (t == null) return OperationResult.Fail(NoTournament);
         if (t.Started) return OperationResult.Fail("Turnaj už začal, přihlášky nejdou měnit.");
         var p = Players.Find(nick);
-        if (p == null) return OperationResult.Fail($"Hráč '{nick.Trim()}' neexistuje.");
+        if (p == null) return OperationResult.Fail("Zadejte přezdívku existujícího hráče.");
         if (t.IsEnrolled(p.Nickname)) return OperationResult.Fail("Hráč už je přihlášen.");
         t.Enrolled.Add(p.Nickname);
         return OperationResult.Success($"Hráč '{p.Nickname}' byl přihlášen.");
     }
 
-    public OperationResult Unenroll(string nick)
+    public OperationResult Unenroll(string? nick)
     {
         var t = Open;
         if (t == null) return OperationResult.Fail(NoTournament);
@@ -161,7 +159,7 @@ public class TournamentService
     {
         var t = Open;
         if (t == null) return OperationResult.Fail(NoTournament);
-        if (result == MatchResult.None) return OperationResult.Fail("Neplatný výsledek.");
+        if (!Match.IsPlayedResult(result)) return OperationResult.Fail("Neplatný výsledek.");
         var round = GetRound(roundNumber);
         if (round == null) return OperationResult.Fail($"Kolo {roundNumber} neexistuje.");
         if (round.IsClosed) return OperationResult.Fail("Kolo je uzavřené, výsledek jde měnit jen před uzavřením.");
