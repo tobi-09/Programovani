@@ -1,0 +1,6 @@
+bin/
+obj/
+.DS_Store
+turnaj.dat
+turnaj.dat.tmp
+turnaj.dat.bad
