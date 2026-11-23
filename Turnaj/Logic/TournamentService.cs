@@ -44,8 +44,8 @@ public class TournamentService
 
     public OperationResult CreateTournament(string name, string discipline, int roundCount)
     {
-        name = name.Trim();
-        discipline = discipline.Trim();
+        name = name?.Trim() ?? "";
+        discipline = discipline?.Trim() ?? "";
         if (name.Length == 0) return OperationResult.Fail("Název turnaje nesmí být prázdný.");
         if (discipline.Length == 0) return OperationResult.Fail("Disciplína nesmí být prázdná.");
         if (roundCount < 1) return OperationResult.Fail("Počet kol musí být kladné číslo.");
@@ -60,8 +60,10 @@ public class TournamentService
         var t = Open;
         if (t == null) return OperationResult.Fail(NoTournament);
         if (t.Started) return OperationResult.Fail("Turnaj už začal, přihlášky nejdou měnit.");
+        nick = nick?.Trim() ?? "";
+        if (nick.Length == 0) return OperationResult.Fail("Přezdívka nesmí být prázdná.");
         var p = Players.Find(nick);
-        if (p == null) return OperationResult.Fail($"Hráč '{nick.Trim()}' neexistuje.");
+        if (p == null) return OperationResult.Fail($"Hráč '{nick}' neexistuje.");
         if (t.IsEnrolled(p.Nickname)) return OperationResult.Fail("Hráč už je přihlášen.");
         t.Enrolled.Add(p.Nickname);
         return OperationResult.Success($"Hráč '{p.Nickname}' byl přihlášen.");
@@ -72,6 +74,8 @@ public class TournamentService
         var t = Open;
         if (t == null) return OperationResult.Fail(NoTournament);
         if (t.Started) return OperationResult.Fail("Turnaj už začal, přihlášky nejdou měnit.");
+        nick = nick?.Trim() ?? "";
+        if (nick.Length == 0) return OperationResult.Fail("Přezdívka nesmí být prázdná.");
         var p = Players.Find(nick);
         if (p == null || !t.IsEnrolled(p.Nickname))
             return OperationResult.Fail("Tento hráč není přihlášen.");
