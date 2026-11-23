@@ -56,7 +56,7 @@ public class ConsoleMenu
             case 4:
                 string name = InputReader.ReadText("Název turnaje");
                 string discipline = InputReader.ReadText("Disciplína");
-                int rounds = InputReader.ReadInt("Počet kol", 1, 100);
+                int rounds = InputReader.ReadInt("Počet kol", 1, int.MaxValue);
                 ConsoleView.Show(_service.CreateTournament(name, discipline, rounds));
                 break;
             case 5: ConsoleView.Show(_service.Enroll(InputReader.ReadText("Přezdívka"))); break;

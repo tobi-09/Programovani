@@ -12,6 +12,8 @@ public class Player
     public string Name { get; }
     public string Nickname { get; }
 
+    public bool PlayedInPastTournament { get; internal set; }
+
     public Player(string name, string nickname)
     {
         Name = name;
@@ -39,7 +41,10 @@ public class Match
         Second = second;
     }
 
-    public bool HasResult => Result != MatchResult.None;
+    public static bool IsPlayedResult(MatchResult result) =>
+        result is MatchResult.FirstWins or MatchResult.SecondWins or MatchResult.Draw;
+
+    public bool HasResult => IsPlayedResult(Result);
     public bool Involves(string nick) => Nick.Eq(First, nick) || Nick.Eq(Second, nick);
 }
 

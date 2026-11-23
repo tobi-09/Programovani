@@ -78,15 +78,27 @@ dotnet run --project Turnaj/Turnaj.csproj
 
 ## GitHub Actions a stav sestavení
 
-Po každém `push` nebo `pull request` směrem na větev `main` GitHub automaticky:
+Po každém `push` nebo `pull request` do větve `dev`, `stage` nebo `main` GitHub automaticky:
 
 1. stáhne zdrojový kód,
 2. nastaví .NET SDK 10.0,
 3. obnoví závislosti,
-4. sestaví projekt v konfiguraci `Release`.
+4. sestaví projekt v konfiguraci `Release` a spustí automatické testy.
 
 Výsledek každého běhu je vidět pod záložkou **Actions** repozitáře. Zelený badge nahoře znamená úspěšné poslední sestavení, červený označuje chybu.
 
 ## Licence
 
 Projekt je uvolněn pod licencí [MIT](LICENSE). Licence umožňuje volné použití, úpravy i šíření programu za podmínky zachování licenčního textu a upozornění o autorských právech.
+
+## Ověření turnaje
+
+Z kořene projektu spusťte `dotnet test Turnaj.sln`. Pro kontrolu tabulky otevřete ukázkový turnaj příkazem `dotnet run --project Turnaj -- Turnaj/ukazka.dat` a zvolte 13. Výhra a volný los dávají dva body, remíza jeden. Volný los se do počtu zápasů nezapočítává.
+
+| Hráč | Body v kolech 1 + 2 + 3 | Výpis programu (body / zápasy) |
+|---|---|---|
+| cyril | 1 + 2 + 2 | 5 / 2 |
+| eda | 2 + 1 + 2 | 5 / 2 |
+| bob | 0 + 1 + 2 | 3 / 3 |
+| dana | 1 + 2 + 0 | 3 / 2 |
+| ana | 2 + 0 + 0 | 2 / 3 |

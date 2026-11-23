@@ -28,7 +28,7 @@ public class LoadResult
 public static class TournamentFileStore
 {
     public const string Header = "TURNAJ-DAT";
-    public const string Version = "1";
+    public const string Version = "2";
 
     // ---------- Uložení ----------
 
@@ -36,7 +36,7 @@ public static class TournamentFileStore
     {
         var records = new List<string>();
         foreach (var p in players.All)
-            records.Add(LineCodec.Join("P", p.Nickname, p.Name));
+            records.Add(LineCodec.Join("P", p.Nickname, p.Name, p.PlayedInPastTournament ? "1" : "0"));
 
         if (t != null)
         {
@@ -105,7 +105,7 @@ public static class TournamentFileStore
 
         var head = LineCodec.Split(lines[0]);
         if (head.Length != 2 || head[0] != Header) throw new FormatException("řádek 1: chybí hlavička.");
-        if (head[1] != Version) throw new FormatException($"řádek 1: nepodporovaná verze '{head[1]}'.");
+        if (head[1] != "1" && head[1] != Version) throw new FormatException($"řádek 1: nepodporovaná verze '{head[1]}'.");
 
         var end = LineCodec.Split(lines[^1]);
         if (end.Length != 2 || end[0] != "END" ||
@@ -120,7 +120,7 @@ public static class TournamentFileStore
         {
             try
             {
-                ParseRecord(LineCodec.Split(lines[i]), players, ref t);
+                ParseRecord(LineCodec.Split(lines[i]), players, ref t, head[1]);
             }
             catch (FormatException ex)
             {
@@ -136,15 +136,16 @@ public static class TournamentFileStore
         return (players, t);
     }
 
-    private static void ParseRecord(string[] f, PlayerRegistry players, ref Tournament? t)
+    private static void ParseRecord(string[] f, PlayerRegistry players, ref Tournament? t, string version)
     {
         switch (f[0])
         {
             case "P":
             {
-                Need(f, 3);
+                Need(f, version == "1" ? 3 : 4);
                 var r = players.Add(f[2], f[1]);
                 if (!r.Ok) throw new FormatException(r.Message);
+                if (version != "1") RequirePlayer(players, f[1]).PlayedInPastTournament = ParseBool(f[3]);
                 break;
             }
             case "T":
