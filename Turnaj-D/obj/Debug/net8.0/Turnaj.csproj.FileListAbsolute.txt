@@ -1,5 +1,0 @@
-/Users/matejzverina/Documents/GitHub/Programovani/Turnaj-D/obj/Debug/net8.0/Turnaj.GeneratedMSBuildEditorConfig.editorconfig
-/Users/matejzverina/Documents/GitHub/Programovani/Turnaj-D/obj/Debug/net8.0/Turnaj.AssemblyInfoInputs.cache
-/Users/matejzverina/Documents/GitHub/Programovani/Turnaj-D/obj/Debug/net8.0/Turnaj.AssemblyInfo.cs
-/Users/matejzverina/Documents/GitHub/Programovani/Turnaj-D/obj/Debug/net8.0/Turnaj.csproj.CoreCompileInputs.cache
-/Users/matejzverina/Documents/GitHub/Programovani/Turnaj-D/obj/Debug/net8.0/Turnaj.sourcelink.json
