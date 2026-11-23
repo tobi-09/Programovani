@@ -7,14 +7,14 @@
 | T1 | Přidání hráče | 1, 2 | Tobi | B | 2 |  |
 | T2 | Výpis hráčů | 3 | Tobi | B | 1 |  |
 | T3 | Odebrání hráče | 4, 5 | Tobi | B | 2 |  |
-| T4 | Založení turnaje | 6, 7 | B | C | 2 |  |
-| T5 | Přihlášení a odhlášení hráče | 8, 9 | B | C | 2 |  |
-| T6 | Vytvoření nového kola | 10 | B | C | 1.5 |  |
-| T7 | Ruční určení dvojic | 11, 12 | C | Matěj | 3 |  |
-| T8 | Volný los | 13 | C | Matěj | 2 |  |
-| T9 | Zadání výsledku zápasu | 14, 17 | C | Matěj | 2 |  |
-| T10 | Přepsání výsledku | 15 | B | C | 1 |  |
-| T11 | Uzavření kola | 16 | B | C | 1.5 |  |
+| T4 | Založení turnaje | 6, 7 | B | Adam | 2 |  |
+| T5 | Přihlášení a odhlášení hráče | 8, 9 | B | Adam | 2 |  |
+| T6 | Vytvoření nového kola | 10 | B | Adam | 1.5 |  |
+| T7 | Ruční určení dvojic | 11, 12 | Adam | Matěj | 3 |  |
+| T8 | Volný los | 13 | Adam | Matěj | 2 |  |
+| T9 | Zadání výsledku zápasu | 14, 17 | Adam | Matěj | 2 |  |
+| T10 | Přepsání výsledku | 15 | B | Adam | 1 |  |
+| T11 | Uzavření kola | 16 | B | Adam | 1.5 |  |
 | T12 | Výpis kola a jeho zápasů | 10, 14 | Matěj | Matěj | 1.5 |  |
 | T13 | Výpočet tabulky | 19, 20 | Matěj | Matěj | 3 |  |
 | T14 | Zobrazení tabulky | 18 | Matěj | Matěj | 1.5 |  |
@@ -23,16 +23,16 @@
 | T17 | Chybějící soubor | 23 | Tobi | B | 1 |  |
 | T18 | Poškozený soubor | 24 | Matěj | Matěj | 3 |  |
 | T19 | Ošetření vstupů z klávesnice | 25 | Tobi | B | 3 |  |
-| T20 | Konzolové menu | 11, 25 | C | Matěj | 3 |  |
+| T20 | Konzolové menu | 11, 25 | Adam | Matěj | 3 |  |
 | T21 | Oddělení logiky od výpisu | 27 | Celý tým | podle PR | 2 |  |
-| T22 | Ověření tabulky ručním výpočtem | 26 | Matěj | C | 3 |  |
-| T23 | Repozitář, větve Dev/Stage/Main, šablona PR | 28 | B | C | 1.5 |  |
-| T24 | Kanban board a naplnění tasky | 29 | C | Matěj | 1 |  |
+| T22 | Ověření tabulky ručním výpočtem | 26 | Matěj | Adam | 3 |  |
+| T23 | Repozitář, větve Dev/Stage/Main, šablona PR | 28 | B | Adam | 1.5 |  |
+| T24 | Kanban board a naplnění tasky | 29 | Adam | Matěj | 1 |  |
 | T25 | Dokument User-stories.md | 30 | Tobi | B | 2 |  |
-| T26 | Dokument SPECIFIKACE.md | 30 | C | Matěj | 3 |  |
+| T26 | Dokument SPECIFIKACE.md | 30 | Adam | Matěj | 3 |  |
 | T27 | Dokument NAVRH.md – třídy | 30 | Matěj | Matěj | 3 |  |
 | T28 | Návrh vlastního formátu ukládání | 30 | Matěj | Tobi | 3 |  |
-| T29 | Automatické testy logiky | 26, 27 | B | C | 3 |  |
+| T29 | Automatické testy logiky | 26, 27 | B | Adam | 3 |  |
 | T30 | Testování na Stage a odevzdání do Main | 26, 30 | Celý tým (vede Tobi) | podle PR | 3 |  |
 
 ## Detail tasků

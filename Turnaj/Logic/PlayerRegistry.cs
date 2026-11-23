@@ -11,8 +11,8 @@ public class PlayerRegistry
     public IEnumerable<Player> All =>
         _players.Values.OrderBy(p => p.Nickname, StringComparer.OrdinalIgnoreCase);
 
-    public Player? Find(string nick) =>
-        _players.TryGetValue(nick.Trim(), out var p) ? p : null;
+    public Player? Find(string? nick) =>
+        nick != null && _players.TryGetValue(nick.Trim(), out var p) ? p : null;
 
     public OperationResult Add(string name, string nick)
     {
