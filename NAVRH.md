@@ -6,11 +6,11 @@ Tři vrstvy. Logika nezná konzoli, vrací výsledky operací.
 | Vrstva | Třídy |
 |---|---|
 | Model + logika | Player, Tournament, Round, Match, MatchResult, StandingRow, PlayerRegistry, TournamentService, StandingsCalculator, OperationResult |
-| Ukládání | TournamentFileStore (zápis), TournamentFileReader (čtení), LineCodec (escapování) |
+| Ukládání | TournamentFileStore (zápis a čtení), LineCodec (escapování) |
 | UI | ConsoleMenu, InputReader, ConsoleView |
 
 ## Třídy a co drží
-- **Player**: Name, Nickname.
+- **Player**: Name, Nickname, PlayedInPastTournament.
 - **PlayerRegistry**: Dictionary<string, Player> podle přezdívky (klíč v malých písmenech). Přidat, odebrat, najít, vypsat.
 - **MatchResult** (enum): None, FirstWins, SecondWins, Draw.
 - **Match**: FirstNick, SecondNick, Result.
@@ -27,28 +27,32 @@ Tři vrstvy. Logika nezná konzoli, vrací výsledky operací.
 Soubor `turnaj.dat`, UTF-8. **Jeden záznam = jeden řádek**, pole odděleno znakem `|`. **Typ záznamu je první pole**.
 
 ```
-TURNAJ-DAT|1
-P|jana|Jana Nováková
-P|petr|Petr Dvořák
+TURNAJ-DAT|2
+P|jana|Jana Nováková|0
+P|petr|Petr Dvořák|0
+P|karel|Karel Novák|0
 T|Jarní turnaj|šachy|3|1
 E|jana
 E|petr
+E|karel
 R|1|1
 M|1|jana|petr|1
 B|1|karel
-END|9
+END|10
 ```
 
 | Typ | Pole | Význam |
 |---|---|---|
 | TURNAJ-DAT | verze | hlavička, musí být první řádek |
-| P | přezdívka, jméno | hráč |
+| P | přezdívka, jméno, odehrál zápas v předchozím turnaji (0/1) | hráč |
 | T | název, disciplína, počet kol, otevřený (0/1) | turnaj, nejvýše jeden |
 | E | přezdívka | přihlášený hráč |
 | R | číslo kola, uzavřeno (0/1) | kolo |
 | M | číslo kola, přezdívka 1, přezdívka 2, výsledek (0 nic, 1, 2, D) | zápas |
 | B | číslo kola, přezdívka | volný los |
 | END | počet záznamů | konec, kontrola úplnosti |
+
+Program čte i verzi 1, kde záznam P obsahuje jen přezdívku a jméno. Při založení dalšího turnaje zapamatuje účastníky odehraných zápasů. Hráče na soupisce právě uloženého turnaje chrání i při volném losu.
 
 ### Escapování
 V textových polích se `\` zapisuje `\\`, `|` jako `\p`, nový řádek jako `\n`. Díky tomu text s oddělovačem nerozbije záznam.

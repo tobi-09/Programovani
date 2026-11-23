@@ -1,0 +1,17 @@
+# .NET build outputs
+**/bin/
+**/obj/
+
+# IDE and operating system files
+.vs/
+**/.vs/
+.DS_Store
+**/.DS_Store
+*.suo
+*.user
+
+# Local tournament data
+turnaj.dat
+turnaj.dat.tmp
+turnaj.dat.bad
+TestResults/
