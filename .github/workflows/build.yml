@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - main
+      - dev
+      - stage
   pull_request:
     branches:
       - main
+      - dev
+      - stage
   workflow_dispatch:
 
 permissions:
@@ -31,6 +35,9 @@ jobs:
 
       - name: Sestavení projektu
         run: dotnet build Turnaj/Turnaj.csproj --configuration Release --no-restore
+
+      - name: Automatické testy
+        run: dotnet test Turnaj.Tests/Turnaj.Tests.csproj -c Release
 
       - name: Ověření výstupu
         run: test -f Turnaj/bin/Release/net10.0/Turnaj.dll
