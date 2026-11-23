@@ -1,0 +1,43 @@
+name: CI – sestavení projektu
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - stage
+  pull_request:
+    branches:
+      - main
+      - dev
+      - stage
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Obnova a sestavení
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout zdrojového kódu
+        uses: actions/checkout@v4
+
+      - name: Nastavení .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Obnova NuGet závislostí
+        run: dotnet restore Turnaj/Turnaj.csproj
+
+      - name: Sestavení projektu
+        run: dotnet build Turnaj/Turnaj.csproj --configuration Release --no-restore
+
+      - name: Automatické testy
+        run: dotnet test Turnaj.Tests/Turnaj.Tests.csproj -c Release
+
+      - name: Ověření výstupu
+        run: test -f Turnaj/bin/Release/net10.0/Turnaj.dll
